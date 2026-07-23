@@ -29,8 +29,8 @@ class SunoToolEngine {
         const path = window.location.pathname;
         const isLyrics = path.includes('lyrics') || this.config.toolId.includes('lyrics');
         
-        const btnText = isLyrics ? 'Generate Prompt' : 'Generate Prompt';
-        const outputLabel = isLyrics ? 'Your Generated Prompt:' : 'Your Generated Prompt:';
+        const btnText = 'Generate Prompt';
+        const outputLabel = 'Your Generated Prompt:';
 
         let html = `<form id="prompt-form">`;
         
@@ -80,10 +80,9 @@ class SunoToolEngine {
         let output = this.config.template;
         this.config.fields.forEach(field => {
             const el = document.getElementById(field.id);
-            const value = field.type === 'multiselect' ? 
-                Array.from(el.selectedOptions).map(o => o.value).join(', ') : 
-                el.value;
-            output = output.replace(`{${field.id}}`, value);
+            // FIX: Handle missing elements and empty values gracefully
+            const value = el ? (el.value || 'None') : '';
+            output = output.replace(new RegExp(`\\{${field.id}\\}`, 'g'), value);
         });
         
         document.getElementById('generated-prompt').value = output;
