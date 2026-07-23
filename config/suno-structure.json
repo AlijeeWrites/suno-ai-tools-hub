@@ -1,0 +1,48 @@
+{
+  "toolId": "suno-structure-generator",
+  "title": "Song Structure Generator",
+  "description": "Plan perfect song arrangements with AI-optimized structure templates for Suno.",
+  "fields": [
+    {
+      "id": "genre",
+      "label": "Music Genre",
+      "type": "select",
+      "options": ["Pop", "Rock", "Hip Hop", "Electronic", "Jazz", "Classical", "Country", "R&B", "Metal", "Folk"],
+      "required": true
+    },
+    {
+      "id": "song_length",
+      "label": "Target Song Length",
+      "type": "select",
+      "options": ["Short (1-2 min)", "Standard (2-4 min)", "Extended (4+ min)"],
+      "required": true
+    },
+    {
+      "id": "complexity",
+      "label": "Structure Complexity",
+      "type": "select",
+      "options": ["Simple (Verse-Chorus)", "Standard (V-C-V-C-B-C)", "Complex (Intro-V-C-V-C-Solo-B-C-Outro)"],
+      "required": true
+    },
+    {
+      "id": "special_sections",
+      "label": "Special Sections to Include",
+      "type": "select",
+      "options": ["None", "Guitar Solo", "Rap Verse", "Bridge Breakdown", "Instrumental Outro", "Spoken Word Intro"],
+      "required": false
+    },
+    {
+      "id": "energy_flow",
+      "label": "Energy Flow Pattern",
+      "type": "select",
+      "options": ["Build Up (Slow → Fast)", "Steady Energy", "Dynamic Peaks", "Fade Out Ending"],
+      "required": false
+    }
+  ],
+  "template": "SONG STRUCTURE PLAN for {genre}:\nLength: {song_length}\nComplexity: {complexity}\nSpecial Section: {special_sections}\nEnergy Flow: {energy_flow}\n\nRecommended Arrangement:\n[Intro] → [Verse 1] → [Chorus] → [Verse 2] → [Chorus] → [{special_sections}] → [Bridge] → [Final Chorus] → [Outro]\n\nSuno Tip: Use [Meta Tags] like [Verse], [Chorus], [Bridge] in Custom Mode to guide AI arrangement.",
+  "monetization": {
+    "donationLink": "https://sevensky.gumroad.com/coffee",
+    "productLink": "https://sevensky.gumroad.com",
+    "productText": "Get 15,000+ Suno AI Prompts Library (200+ Genres)"
+  }
+}
