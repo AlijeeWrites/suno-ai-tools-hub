@@ -1,6 +1,5 @@
 /**
- * Suno AI Tools Engine
- * Reusable prompt generation engine that loads configurations from JSON files
+ * Suno AI Tools Engine - Auto-detects config & adjusts labels
  */
 class SunoToolEngine {
     constructor(configPath) {
@@ -26,6 +25,13 @@ class SunoToolEngine {
         const container = document.getElementById('tool-container');
         if (!container || !this.config) return;
 
+        // AUTO-DETECT TOOL TYPE FOR DYNAMIC LABELS
+        const path = window.location.pathname;
+        const isLyrics = path.includes('lyrics') || this.config.toolId.includes('lyrics');
+        
+        const btnText = isLyrics ? 'Generate Prompt' : 'Generate Prompt';
+        const outputLabel = isLyrics ? 'Your Generated Prompt:' : 'Your Generated Prompt:';
+
         let html = `<form id="prompt-form">`;
         
         this.config.fields.forEach(field => {
@@ -44,9 +50,6 @@ class SunoToolEngine {
             }
             html += `</div>`;
         });
-
-        const btnText = this.config.toolId.includes('lyrics') ? 'Generate Lyrics' : 'Generate Prompt';
-        const outputLabel = this.config.toolId.includes('lyrics') ? 'Your Generated Lyrics:' : 'Your Generated Prompt:';
 
         html += `<button type="submit" class="btn">${btnText}</button></form>
                  <div id="output-area" style="display:none; margin-top: 2rem;">
@@ -69,7 +72,7 @@ class SunoToolEngine {
             const output = document.getElementById('generated-prompt');
             output.select();
             navigator.clipboard.writeText(output.value);
-            alert('Copied to clipboard!');
+            alert('Prompt copied!');
         });
     }
 
@@ -93,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('tool-container');
     if (!container) return;
 
-    // Determine config based on current page URL
     const path = window.location.pathname;
     let configPath = '../config/suno-prompt.json'; // Default fallback
     
