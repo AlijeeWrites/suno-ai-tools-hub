@@ -3,43 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suno Prompt Generator - Free AI Music Tool</title>
-    <meta name="description" content="Free Suno AI Prompt Generator. Create professional music prompts with customizable genre, mood, instruments, and structure.">
+    <title>Free Suno AI Prompt Generator (No Login Required)</title>
+    <meta name="description" content="Generate professional Suno AI prompts instantly. Free tool with genre, mood, vocal, and structure controls. Get our free Suno prompts PDF cheat sheet.">
     <style>
-        body { font-family: system-ui, sans-serif; margin: 0; padding: 2rem; background: #f8fafc; color: #1e293b; }
-        .container { max-width: 700px; margin: 0 auto; }
+        body { font-family: system-ui, sans-serif; margin: 0; padding: 2rem; background: #f8fafc; color: #1e293b; line-height: 1.6; }
+        .container { max-width: 750px; margin: 0 auto; }
         h1 { color: #6366f1; margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: #1e293b; margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; }
+        h3 { color: #334155; margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.15rem; }
         .subtitle { color: #64748b; margin-bottom: 2rem; font-size: 1.1rem; }
         .back { display: inline-block; color: #6366f1; text-decoration: none; margin-bottom: 1.5rem; font-weight: 600; }
-        #tool-container { margin-top: 1rem; }
+        p, li { color: #475569; margin-bottom: 0.75rem; }
+        
+        /* Tool Styles */
+        #tool-container { margin-top: 1rem; background: white; padding: 2rem; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
         .field-group { margin-bottom: 1.2rem; }
         label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
-        select, textarea, input[type="range"] {
-            width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 8px;
-            font-size: 1rem; background: white;
-        }
+        select, textarea, input[type="range"] { width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; background: white; }
         textarea { min-height: 100px; resize: vertical; }
-        button {
-            background: #6366f1; color: white; border: none; padding: 0.8rem 1.5rem;
-            border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 0.5rem;
-        }
+        button { background: #6366f1; color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 0.5rem; transition: background 0.2s; }
         button:hover { background: #4f46e5; }
         #output-area { margin-top: 2rem; padding: 1.5rem; background: #f1f5f9; border-radius: 8px; }
         #generated-prompt { width: 100%; min-height: 120px; padding: 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-family: monospace; margin-bottom: 1rem; }
         .btn-copy { background: #10b981; }
-        .support-box { margin-top: 2rem; padding: 1.5rem; background: #fffbeb; border-left: 4px solid #f59e0b; color: #92400e; }
+        .btn-copy:hover { background: #059669; }
+
+        /* Content Styles */
+        .example-box { background: #f8fafc; border-radius: 8px; padding: 1.25rem; margin-bottom: 1rem; border-left: 4px solid #6366f1; }
+        code { background: white; padding: 0.75rem; display: block; margin-top: 0.5rem; border-radius: 4px; font-family: monospace; font-size: 0.9rem; color: #334155; border: 1px solid #e2e8f0; }
+        .formula-flow { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin: 1.5rem 0; }
+        .formula-tag { background: #6366f1; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+        .formula-arrow { color: #94a3b8; font-weight: bold; }
+        .faq-item { margin-bottom: 1.5rem; }
+        .related-tools { list-style: none; padding: 0; }
+        .related-tools li { margin-bottom: 0.5rem; }
+        .related-tools a { color: #6366f1; text-decoration: none; font-weight: 600; }
+        .related-tools a:hover { text-decoration: underline; }
+
+        /* CTA Boxes */
+        .support-box { margin-top: 2rem; padding: 1.5rem; background: #fffbeb; border-left: 4px solid #f59e0b; color: #92400e; border-radius: 0 8px 8px 0; }
         .support-box a { color: #b45309; font-weight: 700; }
+        .resource-box { margin-top: 3rem; background: linear-gradient(135deg, #f0fdf4, #dcfce7); border: 2px solid #86efac; padding: 2rem; border-radius: 12px; text-align: center; }
+        .resource-box h3 { color: #166534; margin-top: 0; }
+        .resource-box p { color: #15803d; }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+        .btn-primary { background: #16a34a; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 700; }
+        .btn-secondary { background: white; color: #166534; border: 2px solid #16a34a; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 700; }
+        .resource-note { margin-top: 1rem; font-size: 0.85rem; color: #15803d; }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.75rem; }
+            .formula-flow { justify-content: center; }
+            .cta-buttons { flex-direction: column; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <a href="../index.html" class="back">← Back to Tools Hub</a>
         
-        <!-- SINGLE CLEAN HEADER -->
+        <!-- CLEAN HEADER -->
         <h1>Suno Prompt Generator</h1>
         <p class="subtitle">Generate professional AI music prompts instantly.</p>
 
-        <!-- ENGINE INJECTS FORM HERE (NO DUPLICATE TITLE) -->
+        <!-- TOOL FORM -->
         <div id="tool-container">
             <p>Loading generator...</p>
         </div>
@@ -49,6 +77,91 @@
             ❤️ Love this free tool?  
             <a href="https://sevensky.gumroad.com/coffee" target="_blank">Buy Me a Coffee</a> to keep it running.
         </div>
+
+        <!-- COMPREHENSIVE SEO CONTENT -->
+        <article style="margin-top: 3rem;">
+            
+            <h2>What is a Suno AI Prompt Generator?</h2>
+            <p>A <strong>Suno AI prompt generator</strong> helps you create optimized text instructions for Suno's music AI. Instead of guessing what works, this tool structures your ideas into the exact format Suno understands: mood tags, BPM, instrument lists, and vocal types. Whether you need <em>Suno prompts for vocals</em>, hip hop beats, or cinematic scores, proper prompting is the difference between generic output and studio-quality tracks.</p>
+
+            <h2>How to Use This Tool</h2>
+            <ol style="color: #475569; line-height: 2; padding-left: 1.5rem;">
+                <li>Select your <strong>Music Genre</strong> (e.g., Hip Hop, Synthwave, Jazz)</li>
+                <li>Choose the <strong>Mood/Vibe</strong> that matches your vision</li>
+                <li>Pick <strong>Main Instruments</strong> to feature in the track</li>
+                <li>Set <strong>Vocal Type</strong> (Female, Male, Duet, or Instrumental)</li>
+                <li>Adjust <strong>Tempo (BPM)</strong> slider to match desired energy</li>
+                <li>Select <strong>Song Structure</strong> (Verse-Chorus, Loop, Full Song)</li>
+                <li>Add <strong>Style Notes</strong> for specific production details</li>
+                <li>Click <strong>Generate Prompt</strong> and copy to Suno Custom Mode</li>
+            </ol>
+
+            <h2>Suno AI Prompt Examples</h2>
+            <div class="example-box">
+                <strong>🎹 Synthwave:</strong>
+                <code>Nostalgic Synthwave, 95 BPM, Analog Synths. Male Vocals. Verse-Chorus. Dreamy pads, 80s drums, cinematic atmosphere, retro aesthetic.</code>
+            </div>
+            <div class="example-box">
+                <strong>🎤 Hip Hop:</strong>
+                <code>Melancholic Hip Hop, 90 BPM, Heavy Bass. Female Rap Vocals. Full Song. Trap drums, atmospheric production, emotional delivery, modern mix.</code>
+            </div>
+            <div class="example-box">
+                <strong>🎻 Cinematic:</strong>
+                <code>Epic Orchestral, 120 BPM, Strings & Brass. Choir. Cinematic Build. Sweeping melodies, dramatic percussion, Hans Zimmer style, high fidelity.</code>
+            </div>
+
+            <h2>The Perfect Suno Prompt Formula</h2>
+            <p>Experienced Suno users don't write sentences—they use structured tags. Follow this proven framework:</p>
+            <div class="formula-flow">
+                <span class="formula-tag">Genre</span>
+                <span class="formula-arrow">→</span>
+                <span class="formula-tag">Mood</span>
+                <span class="formula-arrow">→</span>
+                <span class="formula-tag">Tempo</span>
+                <span class="formula-arrow">→</span>
+                <span class="formula-tag">Instruments</span>
+                <span class="formula-arrow">→</span>
+                <span class="formula-tag">Vocals</span>
+                <span class="formula-arrow">→</span>
+                <span class="formula-tag">Structure</span>
+                <span class="formula-arrow">→</span>
+                <span class="formula-tag" style="background: #f59e0b;">Production Tags</span>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h3>How to write better prompts for Suno AI?</h3>
+                <p>Be specific about production elements. Instead of "good song," use "polished studio mix, deep bass, crisp highs." Tag-based prompts consistently outperform natural language.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What is the structure of Suno prompts?</h3>
+                <p>The optimal structure is: [Mood] [Genre], [BPM] BPM, [Instruments]. [Vocal Type]. [Structure]. [Style/Production Tags]. This mirrors how music metadata is organized.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How do I create better AI music?</h3>
+                <p>Iterate on your prompts. Save successful combinations. Use our <a href="#resources" style="color: #6366f1;">free prompts PDF</a> as a starting point, then customize based on your genre needs.</p>
+            </div>
+
+            <h2>Related Tools</h2>
+            <ul class="related-tools">
+                <li><a href="../index.html#lyrics">Suno Lyrics Generator</a> – Create custom lyrics for any genre</li>
+                <li><a href="../index.html#structure">Song Structure Generator</a> – Plan verse/chorus arrangements</li>
+                <li><a href="../index.html#genre">Genre Explorer</a> – Discover unique fusion styles</li>
+            </ul>
+
+            <!-- FREE RESOURCES + COMMERCIAL CTA -->
+            <div id="resources" class="resource-box">
+                <h3>📥 Free Suno Prompts Resources</h3>
+                <p>Start with our free beginner guide and 25-prompt cheat sheet. Ready for more? Get the complete library.</p>
+                
+                <div class="cta-buttons">
+                    <a href="https://sevensky.gumroad.com" target="_blank" class="btn-primary">Download 15,000+ Prompts PDF</a>
+                    <a href="https://sevensky.gumroad.com/coffee" target="_blank" class="btn-secondary">Get Free Cheat Sheet</a>
+                </div>
+                <p class="resource-note">Includes: Suno prompts list PDF • Suno prompts guide PDF • 10,000+ tested prompts</p>
+            </div>
+
+        </article>
     </div>
 
     <script src="../js/engine.js"></script>
