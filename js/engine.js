@@ -12,12 +12,13 @@ class SunoToolEngine {
     async init() {
         try {
             const response = await fetch(this.configPath);
+            if (!response.ok) throw new Error('Config not found');
             this.config = await response.json();
             this.renderTool();
         } catch (error) {
             console.error('Failed to load tool config:', error);
             document.getElementById('tool-container').innerHTML = 
-                '<p class="error">Error loading tool. Please refresh.</p>';
+                '<p class="error">Error loading tool configuration. Please refresh.</p>';
         }
     }
 
@@ -25,7 +26,7 @@ class SunoToolEngine {
         const container = document.getElementById('tool-container');
         if (!container || !this.config) return;
 
-        let html = `<h2>${this.config.title}</h2><p>${this.config.description}</p><form id="prompt-form">`;
+        let html = `<form id="prompt-form">`;
         
         this.config.fields.forEach(field => {
             html += `<div class="field-group"><label for="${field.id}">${field.label}${field.required ? ' *' : ''}</label>`;
@@ -44,9 +45,12 @@ class SunoToolEngine {
             html += `</div>`;
         });
 
-        html += `<button type="submit" class="btn">Generate Prompt</button></form>
+        const btnText = this.config.toolId.includes('lyrics') ? 'Generate Lyrics' : 'Generate Prompt';
+        const outputLabel = this.config.toolId.includes('lyrics') ? 'Your Generated Lyrics:' : 'Your Generated Prompt:';
+
+        html += `<button type="submit" class="btn">${btnText}</button></form>
                  <div id="output-area" style="display:none; margin-top: 2rem;">
-                    <h3>Your Generated Prompt:</h3>
+                    <h3>${outputLabel}</h3>
                     <textarea id="generated-prompt" readonly></textarea>
                     <button id="copy-btn" class="btn btn-copy">Copy to Clipboard</button>
                  </div>`;
@@ -58,35 +62,46 @@ class SunoToolEngine {
     attachEventListeners() {
         document.getElementById('prompt-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            this.generatePrompt();
+            this.generateOutput();
         });
         
         document.getElementById('copy-btn')?.addEventListener('click', () => {
             const output = document.getElementById('generated-prompt');
             output.select();
             navigator.clipboard.writeText(output.value);
-            alert('Prompt copied!');
+            alert('Copied to clipboard!');
         });
     }
 
-    generatePrompt() {
-        let prompt = this.config.template;
+    generateOutput() {
+        let output = this.config.template;
         this.config.fields.forEach(field => {
             const el = document.getElementById(field.id);
             const value = field.type === 'multiselect' ? 
                 Array.from(el.selectedOptions).map(o => o.value).join(', ') : 
                 el.value;
-            prompt = prompt.replace(`{${field.id}}`, value);
+            output = output.replace(`{${field.id}}`, value);
         });
         
-        document.getElementById('generated-prompt').value = prompt;
+        document.getElementById('generated-prompt').value = output;
         document.getElementById('output-area').style.display = 'block';
     }
 }
 
-// Initialize when DOM is ready
+// AUTO-DETECT CONFIG BASED ON URL PATHNAME
 document.addEventListener('DOMContentLoaded', () => {
-    if (document.getElementById('tool-container')) {
-        new SunoToolEngine('../config/suno-prompt.json');
+    const container = document.getElementById('tool-container');
+    if (!container) return;
+
+    // Determine config based on current page URL
+    const path = window.location.pathname;
+    let configPath = '../config/suno-prompt.json'; // Default fallback
+    
+    if (path.includes('lyrics')) {
+        configPath = '../config/suno-lyrics.json';
+    } else if (path.includes('structure')) {
+        configPath = '../config/suno-structure.json';
     }
+    
+    new SunoToolEngine(configPath);
 });
