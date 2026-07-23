@@ -1,0 +1,48 @@
+{
+  "toolId": "suno-prompt-generator",
+  "title": "Suno Prompt Generator",
+  "description": "Generate professional Suno AI music prompts with customizable parameters for better AI-generated songs.",
+  "fields": [
+    {
+      "id": "genre",
+      "label": "Music Genre",
+      "type": "select",
+      "options": ["Pop", "Rock", "Hip Hop", "Electronic", "Jazz", "Classical", "Country", "R&B", "Metal", "Folk"],
+      "required": true
+    },
+    {
+      "id": "mood",
+      "label": "Mood/Vibe",
+      "type": "select",
+      "options": ["Energetic", "Chill", "Melancholic", "Romantic", "Epic", "Dark", "Uplifting", "Mysterious"],
+      "required": true
+    },
+    {
+      "id": "instruments",
+      "label": "Primary Instruments",
+      "type": "select",
+      "options": ["Guitar", "Piano", "Drums", "Bass", "Synth", "Vocals", "Strings", "Brass", "Full Band"],
+      "required": true
+    },
+    {
+      "id": "tempo",
+      "label": "Tempo (BPM)",
+      "type": "range",
+      "min": 60,
+      "max": 200,
+      "default": 120
+    },
+    {
+      "id": "style_notes",
+      "label": "Additional Style Notes",
+      "type": "textarea",
+      "placeholder": "e.g., '80s synthwave vibe with female vocals and reverb'"
+    }
+  ],
+  "template": "Create a {genre} song with {mood} mood. Tempo: {tempo} BPM. Primary instruments: {instruments}. Style notes: {style_notes}",
+  "monetization": {
+    "donationLink": "https://sevensky.gumroad.com/coffee",
+    "productLink": "https://sevensky.gumroad.com",
+    "productText": "Get 15,000+ Suno AI Prompts Library (200+ Genres)"
+  }
+}
