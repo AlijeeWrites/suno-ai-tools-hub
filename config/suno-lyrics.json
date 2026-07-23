@@ -1,0 +1,54 @@
+{
+  "toolId": "suno-lyrics-generator",
+  "title": "Suno Lyrics Generator",
+  "description": "Generate custom song lyrics tailored for AI music creation across all genres.",
+  "fields": [
+    {
+      "id": "genre",
+      "label": "Music Genre",
+      "type": "select",
+      "options": ["Pop", "Hip Hop", "Rock", "R&B", "Country", "Electronic", "Jazz", "Folk"],
+      "required": true
+    },
+    {
+      "id": "mood",
+      "label": "Mood/Vibe",
+      "type": "select",
+      "options": ["Energetic", "Melancholic", "Romantic", "Uplifting", "Dark", "Nostalgic"],
+      "required": true
+    },
+    {
+      "id": "theme",
+      "label": "Lyric Theme",
+      "type": "select",
+      "options": ["Love", "Heartbreak", "Empowerment", "Freedom", "Nature", "Urban Life", "Dreams", "Rebellion"],
+      "required": true
+    },
+    {
+      "id": "vocal_type",
+      "label": "Vocal Style",
+      "type": "select",
+      "options": ["Female Vocals", "Male Vocals", "Duet", "Rap", "Choir"],
+      "required": false
+    },
+    {
+      "id": "structure",
+      "label": "Song Structure",
+      "type": "select",
+      "options": ["Verse-Chorus", "Full Song", "Verse-PreChorus-Chorus", "Bridge Included"],
+      "required": false
+    },
+    {
+      "id": "style_notes",
+      "label": "Additional Notes",
+      "type": "textarea",
+      "placeholder": "e.g., poetic, storytelling, repetitive hook, emotional build-up"
+    }
+  ],
+  "template": "Write {genre} lyrics with a {mood} vibe about '{theme}'. Vocal style: {vocal_type}. Structure: {structure}. Style notes: {style_notes}. Focus on strong imagery, emotional resonance, and singable phrasing.",
+  "monetization": {
+    "donationLink": "https://sevensky.gumroad.com/coffee",
+    "productLink": "https://sevensky.gumroad.com",
+    "productText": "Get 15,000+ Suno AI Prompts Library (200+ Genres)"
+  }
+}
