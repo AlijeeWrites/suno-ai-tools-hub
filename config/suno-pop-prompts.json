@@ -1,0 +1,48 @@
+{
+  "toolId": "suno-pop-prompts",
+  "title": "Free Pop Music Prompt Generator for Suno",
+  "description": "Generate professional pop music prompts optimized for Suno AI. Includes vocal styles, BPM, and production tags specifically for pop songs.",
+  "fields": [
+    {
+      "id": "subgenre",
+      "label": "Pop Subgenre",
+      "type": "select",
+      "options": ["Synthpop", "Indie Pop", "Dance Pop", "Ballad", "K-Pop", "Bedroom Pop", "Electropop"],
+      "required": true
+    },
+    {
+      "id": "mood",
+      "label": "Mood/Vibe",
+      "type": "select",
+      "options": ["Upbeat", "Melancholic", "Romantic", "Empowering", "Nostalgic", "Dreamy"],
+      "required": true
+    },
+    {
+      "id": "vocal_type",
+      "label": "Vocal Style",
+      "type": "select",
+      "options": ["Female Vocals", "Male Vocals", "Duet", "Group Harmony", "Auto-Tuned"],
+      "required": false
+    },
+    {
+      "id": "tempo",
+      "label": "Tempo (BPM)",
+      "type": "range",
+      "min": 80,
+      "max": 160,
+      "default": 120
+    },
+    {
+      "id": "production",
+      "label": "Production Style",
+      "type": "textarea",
+      "placeholder": "e.g., polished studio mix, catchy hook, layered synths, crisp drums"
+    }
+  ],
+  "template": "{subgenre} pop song, {mood} vibe, {tempo} BPM. {vocal_type}. Production: {production}. Catchy chorus, radio-ready mix, modern pop structure.",
+  "monetization": {
+    "donationLink": "https://sevensky.gumroad.com/coffee",
+    "productLink": "https://sevensky.gumroad.com",
+    "productText": "Get 15,000+ Suno AI Prompts Library (200+ Genres)"
+  }
+}
