@@ -1,7 +1,7 @@
 {
-  "toolId": "suno-lyrics-generator",
-  "title": "Suno Lyrics Generator",
-  "description": "Generate custom song lyrics tailored for AI music creation across all genres.",
+  "toolId": "suno-lyrics-prompt-generator",
+  "title": "Suno Lyrics Prompt Generator",
+  "description": "Generate structured text prompts designed to help AI writers create better song lyrics for Suno",
   "fields": [
     {
       "id": "genre",
