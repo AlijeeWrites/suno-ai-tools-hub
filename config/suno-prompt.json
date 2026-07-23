@@ -7,21 +7,28 @@
       "id": "genre",
       "label": "Music Genre",
       "type": "select",
-      "options": ["Pop", "Rock", "Hip Hop", "Electronic", "Jazz", "Classical", "Country", "R&B", "Metal", "Folk"],
+      "options": ["Pop", "Rock", "Hip Hop", "Electronic", "Jazz", "Classical", "Country", "R&B", "Metal", "Folk", "Lo-fi", "Synthwave"],
       "required": true
     },
     {
       "id": "mood",
       "label": "Mood/Vibe",
       "type": "select",
-      "options": ["Energetic", "Chill", "Melancholic", "Romantic", "Epic", "Dark", "Uplifting", "Mysterious"],
+      "options": ["Energetic", "Chill", "Melancholic", "Romantic", "Epic", "Dark", "Uplifting", "Mysterious", "Nostalgic", "Aggressive"],
       "required": true
     },
     {
-      "id": "instruments",
-      "label": "Primary Instruments",
+      "id": "vocal_type",
+      "label": "Vocal Type",
       "type": "select",
-      "options": ["Guitar", "Piano", "Drums", "Bass", "Synth", "Vocals", "Strings", "Brass", "Full Band"],
+      "options": ["Female Vocals", "Male Vocals", "Duet", "Instrumental Only", "Choir", "Rap Vocals"],
+      "required": false
+    },
+    {
+      "id": "instruments",
+      "label": "Main Instrument(s)",
+      "type": "select",
+      "options": ["Bass", "Guitar", "Piano", "Drums", "Synth", "Strings", "Brass", "Full Band", "Acoustic"],
       "required": true
     },
     {
@@ -33,13 +40,20 @@
       "default": 120
     },
     {
+      "id": "structure",
+      "label": "Song Structure",
+      "type": "select",
+      "options": ["Verse-Chorus", "Full Song", "Intro Only", "Loop / Beat", "Cinematic Build"],
+      "required": false
+    },
+    {
       "id": "style_notes",
       "label": "Additional Style Notes",
       "type": "textarea",
-      "placeholder": "e.g., '80s synthwave vibe with female vocals and reverb'"
+      "placeholder": "e.g. female vocals, emotional chorus, cinematic intro, trap drums, atmospheric production"
     }
   ],
-  "template": "Create a {genre} song with {mood} mood. Tempo: {tempo} BPM. Primary instruments: {instruments}. Style notes: {style_notes}",
+  "template": "{mood} {genre}, {tempo} BPM, {instruments}. {vocal_type}. {structure}. {style_notes}. Polished studio-quality mix, modern production, high fidelity.",
   "monetization": {
     "donationLink": "https://sevensky.gumroad.com/coffee",
     "productLink": "https://sevensky.gumroad.com",
