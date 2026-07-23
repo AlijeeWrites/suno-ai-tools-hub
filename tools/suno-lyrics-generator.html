@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Suno Lyrics Generator - AI Song Lyrics Tool</title>
-    <meta name="description" content="Generate custom song lyrics for Suno AI instantly. Free tool with genre, mood, theme, and structure controls. Perfect for AI music creators.">
+    <title>Free Suno Lyrics Prompt Generator - Create Lyric Prompts for AI</title>
+    <meta name="description" content="Generate optimized text prompts to create custom song lyrics using ChatGPT, Claude, or Gemini. Free tool for Suno AI music creators.">
     <style>
         body { font-family: system-ui, sans-serif; margin: 0; padding: 2rem; background: #f8fafc; color: #1e293b; line-height: 1.6; }
         .container { max-width: 750px; margin: 0 auto; }
@@ -27,6 +27,18 @@
         #generated-prompt { width: 100%; min-height: 150px; padding: 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-family: monospace; margin-bottom: 1rem; white-space: pre-wrap; }
         .btn-copy { background: #10b981; }
         .btn-copy:hover { background: #059669; }
+
+        /* Workflow Info Box */
+        .workflow-box { 
+            margin-top: 1.5rem; 
+            padding: 1rem 1.25rem; 
+            background: #eff6ff; 
+            border-left: 4px solid #3b82f6; 
+            border-radius: 0 8px 8px 0; 
+            font-size: 0.95rem; 
+            color: #1e3a8a; 
+            line-height: 1.5;
+        }
 
         /* Content Styles */
         .example-box { background: #f8fafc; border-radius: 8px; padding: 1.25rem; margin-bottom: 1rem; border-left: 4px solid #6366f1; }
@@ -59,18 +71,18 @@
     <div class="container">
         <a href="../index.html" class="back">← Back to Tools Hub</a>
         
-        <!-- CLEAN HEADER -->
-<!-- OLD -->
-<h1>Suno Lyrics Generator</h1>
-<p class="subtitle">Generate custom song lyrics tailored for AI music creation.</p>
-
-<!-- NEW -->
-<h1>Suno Lyrics Prompt Generator</h1>
-<p class="subtitle">Create optimized text prompts to generate custom lyrics with AI writing tools.</p>
+        <!-- CLEAN HEADER (UPDATED FOR OPTION B) -->
+        <h1>Suno Lyrics Prompt Generator</h1>
+        <p class="subtitle">Create optimized text prompts to generate custom lyrics with AI writing tools.</p>
 
         <!-- TOOL FORM -->
         <div id="tool-container">
             <p>Loading generator...</p>
+        </div>
+
+        <!-- WORKFLOW CLARIFICATION BOX (NEW) -->
+        <div class="workflow-box">
+            <strong>💡 How this works:</strong> This tool generates a structured <em>prompt</em>. Copy the output and paste it into ChatGPT, Claude, or Gemini to get actual song lyrics. Then paste those lyrics into Suno's Custom Mode.
         </div>
 
         <!-- SUPPORT CTA -->
@@ -79,11 +91,11 @@
             <a href="https://sevensky.gumroad.com/coffee" target="_blank">Buy Me a Coffee</a> to keep it running.
         </div>
 
-        <!-- COMPREHENSIVE SEO CONTENT -->
+        <!-- COMPREHENSIVE SEO CONTENT (UPDATED FOR ACCURACY) -->
         <article style="margin-top: 3rem;">
             
-            <h2>What is a Suno Lyrics Generator?</h2>
-            <p>A <strong>Suno lyrics generator</strong> helps you create original, structured song lyrics optimized for AI music platforms. Instead of struggling with writer's block or generic phrases, this tool generates lyrics with proper verse-chorus structure, emotional depth, and singable phrasing that Suno can interpret effectively.</p>
+            <h2>What is a Suno Lyrics Prompt Generator?</h2>
+            <p>A <strong>Suno lyrics prompt generator</strong> creates structured text instructions designed for AI writing assistants like ChatGPT, Claude, or Gemini. Instead of starting from scratch, you define genre, mood, theme, and structure — then use the generated prompt to get high-quality, original lyrics from an LLM. These lyrics can then be pasted directly into Suno's Custom Mode for music generation.</p>
 
             <h2>How to Use This Tool</h2>
             <ol style="color: #475569; line-height: 2; padding-left: 1.5rem;">
@@ -93,12 +105,17 @@
                 <li>Set <strong>Vocal Style</strong> (Female, Male, Duet, Rap, Choir)</li>
                 <li>Select <strong>Song Structure</strong> (Verse-Chorus, Full Song, etc.)</li>
                 <li>Add <strong>Additional Notes</strong> for specific lyrical direction</li>
-                <li>Click <strong>Generate Lyrics</strong> and copy to Suno Custom Mode</li>
+                <li>Click <strong>Generate Prompt</strong>, copy the output, and paste into ChatGPT/Claude/Gemini</li>
+                <li>Copy the AI-generated lyrics and paste into Suno's Custom Mode lyrics field</li>
             </ol>
 
-            <h2>Suno Lyrics Examples</h2>
+            <h2>Example Prompts & Output</h2>
             <div class="example-box">
-                <strong> Heartbreak Pop:</strong>
+                <strong>Generated Prompt (from this tool):</strong>
+                <code>Write Pop lyrics with a Melancholic vibe about 'Heartbreak'. Vocal style: Female Vocals. Structure: Verse-Chorus. Style notes: poetic, emotional build-up. Focus on strong imagery, emotional resonance, and singable phrasing.</code>
+            </div>
+            <div class="example-box">
+                <strong>Expected AI Output (paste into Suno):</strong>
                 <code>[Verse]
 Streetlights blur through tears I cry
 Your shadow fades into the night
@@ -111,33 +128,19 @@ Heartbeat echoing through the door
 I'm singing to an empty room
 Still wearing your perfume</code>
             </div>
-            <div class="example-box">
-                <strong>🔥 Empowerment Hip Hop:</strong>
-                <code>[Verse]
-Started from the basement, now we touching sky
-Every "no" they gave me just made my fire rise
-They said I couldn't make it, said I'd never fly
-Now watch me spread my wings and touch the highest high
-
-[Chorus]
-Unstoppable, unbreakable, undeniable
-Built this empire from nothing, it's remarkable
-They tried to dim my light but I'm unstoppable
-Rising like a phoenix, forever remarkable</code>
-            </div>
 
             <h2>Frequently Asked Questions</h2>
             <div class="faq-item">
-                <h3>Can I use these lyrics in Suno AI?</h3>
-                <p>Yes! Copy the generated lyrics directly into Suno's "Custom Mode" lyrics field. The structured format (Verse/Chorus tags) helps Suno understand song arrangement.</p>
+                <h3>Does this tool write actual lyrics?</h3>
+                <p>No — it generates a <em>prompt</em> optimized for AI writers. Paste the output into ChatGPT, Claude, or Gemini to get original lyrics, then use those in Suno.</p>
             </div>
             <div class="faq-item">
-                <h3>Are these lyrics original?</h3>
-                <p>Yes, each generation creates unique lyrics based on your parameters. No two outputs are identical, ensuring original content for your music.</p>
+                <h3>Can I use the AI-generated lyrics in Suno?</h3>
+                <p>Yes! Copy the lyrics from ChatGPT/Claude/Gemini and paste them into Suno's "Custom Mode" lyrics field. Use [Verse], [Chorus], [Bridge] tags for best results.</p>
             </div>
             <div class="faq-item">
-                <h3>How do I get better lyrics from Suno?</h3>
-                <p>Use clear structure tags like [Verse], [Chorus], [Bridge]. Specify vocal style and mood. Our generator automatically formats lyrics for optimal Suno interpretation.</p>
+                <h3>Why not just ask ChatGPT directly?</h3>
+                <p>This tool structures your request with Suno-specific parameters (vocal type, BPM-aware phrasing, tag formatting) that generic prompts miss — resulting in better lyrics for music generation.</p>
             </div>
 
             <h2>Related Tools</h2>
@@ -150,26 +153,18 @@ Rising like a phoenix, forever remarkable</code>
             <!-- FREE RESOURCES + COMMERCIAL CTA -->
             <div id="resources" class="resource-box">
                 <h3>📥 Free Suno Lyrics Resources</h3>
-                <p>Get our lyric writing guide and 50+ proven lyric templates. Ready for more? Access the complete library.</p>
+                <p>Get our lyric prompt templates and workflow guide. Ready for more? Access the complete library.</p>
                 
                 <div class="cta-buttons">
                     <a href="https://sevensky.gumroad.com" target="_blank" class="btn-primary">Download 15,000+ Prompts PDF</a>
-                    <a href="https://sevensky.gumroad.com/coffee" target="_blank" class="btn-secondary">Get Free Lyric Templates</a>
+                    <a href="https://sevensky.gumroad.com/coffee" target="_blank" class="btn-secondary">Get Free Prompt Templates</a>
                 </div>
-                <p class="resource-note">Includes: Suno prompts list PDF • Lyric writing guide • 10,000+ tested prompts</p>
+                <p class="resource-note">Includes: Suno prompts list PDF • Lyric prompt guide • 10,000+ tested prompts</p>
             </div>
 
         </article>
     </div>
 
     <script src="../js/engine.js"></script>
-    <script>
-        // Override default config path for lyrics generator
-        document.addEventListener('DOMContentLoaded', () => {
-            if (document.getElementById('tool-container')) {
-                new SunoToolEngine('../config/suno-lyrics.json');
-            }
-        });
-    </script>
 </body>
 </html>
