@@ -6,107 +6,39 @@
     <title>Suno AI Tools Hub - Free Prompt Generator & Music Creation Tools</title>
     <meta name="description" content="Free Suno AI Tools Hub: Prompt Generator, Lyrics Builder, Song Structure Creator & More. Open-source utilities for AI music creators.">
     <style>
-        :root { 
-            --primary: #6366f1; 
-            --primary-dark: #4f46e5;
-            --accent: #f59e0b; /* Gold/Orange for monetization */
-            --bg: #f8fafc; 
-            --card-bg: #ffffff; 
-            --text: #1e293b;
-            --text-light: #64748b;
-        }
+        :root { --primary: #6366f1; --primary-dark: #4f46e5; --accent: #f59e0b; --bg: #f8fafc; --card-bg: #ffffff; --text: #1e293b; --text-light: #64748b; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; }
         body { background: var(--bg); color: var(--text); line-height: 1.6; }
-        
-        /* Container & Layout */
         .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; }
         
-        /* Header */
         header { text-align: center; padding: 3rem 1rem 2rem; }
-        h1 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--primary); font-weight: 800; letter-spacing: -0.02em; }
+        h1 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--primary); font-weight: 800; }
         .subtitle { font-size: 1.2rem; color: var(--text-light); max-width: 600px; margin: 0 auto; }
 
-        /* MONETIZATION BANNER - High Visibility */
-        .pro-banner {
-            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 16px;
-            margin: 2rem 0 3rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 2rem;
-            box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.3);
-        }
-        .pro-content h2 { font-size: 1.5rem; margin-bottom: 0.5rem; }
-        .pro-content p { opacity: 0.9; font-size: 1rem; }
-        .pro-btn {
-            background: var(--accent);
-            color: #fff;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            white-space: nowrap;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 14px 0 rgba(245, 158, 11, 0.39);
-        }
-        .pro-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5); }
+        /* PRIMARY MONETIZATION BANNER */
+        .pro-banner { background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); color: white; padding: 2.5rem; border-radius: 16px; margin: 2rem 0 1rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.3); }
+        .pro-content h2 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+        .pro-btn { background: var(--accent); color: #fff; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; white-space: nowrap; transition: transform 0.2s; box-shadow: 0 4px 14px 0 rgba(245, 158, 11, 0.4); }
+        .pro-btn:hover { transform: translateY(-2px); }
 
-        /* Tools Grid */
-        .tools-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-            gap: 1.5rem; 
-            margin-bottom: 4rem; 
-        }
-        
-        /* Tool Cards */
-        .tool-card { 
-            background: var(--card-bg); 
-            border-radius: 12px; 
-            padding: 1.5rem; 
-            border: 1px solid #e2e8f0;
-            transition: all 0.2s ease;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
+        /* SECONDARY SUPPORT BAR (High Visibility) */
+        .support-bar { background: #fffbeb; border: 1px solid #fcd34d; padding: 1rem; border-radius: 12px; margin-bottom: 3rem; text-align: center; color: #92400e; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+        .support-bar a { color: #b45309; text-decoration: underline; font-weight: 700; }
+
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 4rem; }
+        .tool-card { background: var(--card-bg); border-radius: 12px; padding: 1.5rem; border: 1px solid #e2e8f0; transition: all 0.2s ease; display: flex; flex-direction: column; height: 100%; }
         .tool-card:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); }
-        .tool-card h3 { color: var(--primary); margin-bottom: 0.75rem; font-size: 1.25rem; display: flex; align-items: center; gap: 0.5rem; }
+        .tool-card h3 { color: var(--primary); margin-bottom: 0.75rem; font-size: 1.25rem; }
         .tool-card p { color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1; }
         
-        /* Buttons */
-        .btn { 
-            display: inline-block; 
-            background: var(--primary); 
-            color: white; 
-            padding: 0.75rem 1.5rem; 
-            border-radius: 8px; 
-            text-decoration: none; 
-            font-weight: 600; 
-            text-align: center;
-            transition: background 0.2s;
-        }
+        .btn { display: inline-block; background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; text-align: center; transition: background 0.2s; }
         .btn:hover { background: var(--primary-dark); }
-        .btn-disabled { 
-            background: #e2e8f0; 
-            color: #94a3b8; 
-            cursor: not-allowed; 
-            pointer-events: none;
-        }
+        .btn-disabled { background: #e2e8f0; color: #94a3b8; cursor: not-allowed; pointer-events: none; }
 
-        /* Footer */
         footer { text-align: center; padding: 3rem 1rem; border-top: 1px solid #e2e8f0; margin-top: 2rem; }
         .footer-links a { color: var(--primary); text-decoration: none; font-weight: 600; margin: 0 0.5rem; }
-        .coffee-link { color: var(--accent) !important; }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .pro-banner { flex-direction: column; text-align: center; }
-            h1 { font-size: 2rem; }
-        }
+        
+        @media (max-width: 768px) { .pro-banner { flex-direction: column; text-align: center; } h1 { font-size: 2rem; } }
     </style>
 </head>
 <body>
@@ -116,7 +48,7 @@
             <p class="subtitle">The ultimate open-source toolkit for AI music creators. Generate prompts, lyrics, and structures instantly.</p>
         </header>
         
-        <!-- PROMINENT MONETIZATION BANNER -->
+        <!-- PRIMARY CTA: PRODUCT SALES -->
         <div class="pro-banner">
             <div class="pro-content">
                 <h2>🚀 Supercharge Your Suno Music</h2>
@@ -125,66 +57,61 @@
             <a href="https://sevensky.gumroad.com" class="pro-btn" target="_blank">Get Full Library →</a>
         </div>
 
-        <!-- EXPANDED TOOLS GRID (10 ITEMS) -->
+        <!-- SECONDARY CTA: DONATIONS/SUPPORT -->
+        <div class="support-bar">
+            <span>☕ Love these free tools?</span>
+            <a href="https://sevensky.gumroad.com/coffee" target="_blank">Buy Me a Coffee to keep them running</a>
+        </div>
+
+        <!-- EXACT KEYWORD TITLES GRID -->
         <div class="tools-grid">
-            <!-- ACTIVE TOOL -->
             <div class="tool-card">
-                <h3>🎵 Prompt Generator</h3>
+                <h3>Suno Prompt Generator</h3>
                 <p>Create professional Suno AI music prompts with customizable genre, mood, and instruments.</p>
                 <a href="tools/suno-prompt-generator.html" class="btn">Use Tool</a>
             </div>
-
-            <!-- COMING SOON TOOLS -->
             <div class="tool-card">
-                <h3>✍️ Lyrics Generator</h3>
+                <h3>Suno Lyrics Generator</h3>
                 <p>Generate custom song lyrics tailored for AI music creation across all genres.</p>
                 <span class="btn btn-disabled">Coming Soon</span>
             </div>
-            
             <div class="tool-card">
-                <h3>🏗️ Song Structure</h3>
+                <h3>Song Structure Generator</h3>
                 <p>Plan perfect song arrangements with AI-optimized structure templates (Verse, Chorus, Bridge).</p>
                 <span class="btn btn-disabled">Coming Soon</span>
             </div>
-
             <div class="tool-card">
-                <h3>🎸 Genre Explorer</h3>
+                <h3>Genre Generator</h3>
                 <p>Discover unique genre combinations and fusion styles for your next track.</p>
                 <span class="btn btn-disabled">Coming Soon</span>
             </div>
-
             <div class="tool-card">
-                <h3>😊 Mood Creator</h3>
+                <h3>Mood Generator</h3>
                 <p>Find the perfect emotional vibe descriptors to guide Suno's generation.</p>
                 <span class="btn btn-disabled">Coming Soon</span>
             </div>
-
             <div class="tool-card">
-                <h3>🥁 Instrument Mixer</h3>
+                <h3>Instrument Generator</h3>
                 <p>Select and balance specific instruments for detailed sonic control.</p>
                 <span class="btn btn-disabled">Coming Soon</span>
             </div>
-
             <div class="tool-card">
-                <h3>💿 Album Name Gen</h3>
+                <h3>Album Name Generator</h3>
                 <p>Generate catchy, cohesive album titles that match your musical style.</p>
                 <span class="btn btn-disabled">Coming Soon</span>
             </div>
-
             <div class="tool-card">
-                <h3> Artist Name Gen</h3>
+                <h3>Artist Name Generator</h3>
                 <p>Create unique artist personas and band names for your AI projects.</p>
                 <span class="btn btn-disabled">Coming Soon</span>
             </div>
-
             <div class="tool-card">
-                <h3>🏷️ Metadata Helper</h3>
+                <h3>Music Metadata Generator</h3>
                 <p>Format tags, titles, and descriptions correctly for streaming platforms.</p>
                 <span class="btn btn-disabled">Coming Soon</span>
             </div>
-
             <div class="tool-card">
-                <h3>🎨 Cover Art Prompts</h3>
+                <h3>Cover Art Prompt Generator</h3>
                 <p>Generate Midjourney/DALL-E prompts specifically for music album covers.</p>
                 <span class="btn btn-disabled">Coming Soon</span>
             </div>
@@ -192,10 +119,7 @@
 
         <footer>
             <div class="footer-links">
-                <p>Support this free project: <a href="https://sevensky.gumroad.com/coffee" class="coffee-link" target="_blank">Buy Me a Coffee ☕</a></p>
-                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-light);">
-                    Open-source under MIT License • <a href="https://github.com/AlijeeWrites/suno-ai-tools-hub" target="_blank">View Code on GitHub</a>
-                </p>
+                <p>Open-source under MIT License • <a href="https://github.com/AlijeeWrites/suno-ai-tools-hub" target="_blank">View Code on GitHub</a></p>
             </div>
         </footer>
     </div>
