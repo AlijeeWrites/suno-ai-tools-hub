@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suno AI Tools Hub - Free Prompt Generator & Music Creation Tools</title>
-    <meta name="description" content="Free Suno AI Tools Hub: Prompt Generator, Lyrics Builder, Song Structure Creator & More. Open-source utilities for AI music creators.">
+    <meta name="description" content="Free Suno AI Tools Hub: Prompt Generator, Lyrics Builder, Song Structure Creator & Genre-Specific Generators. Open-source utilities for AI music creators.">
     <style>
         :root { 
             --primary: #6366f1; 
@@ -112,6 +112,11 @@
             pointer-events: none; 
         }
 
+        /* GENRE SECTION STYLES */
+        .genre-section { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #e2e8f0; }
+        .genre-section h2 { text-align:center; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.75rem; }
+        .genre-section > p { text-align:center; color: var(--text-light); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+
         footer { text-align: center; padding: 3rem 1rem; border-top: 1px solid #e2e8f0; margin-top: 2rem; }
         .footer-links a { color: var(--primary); text-decoration: none; font-weight: 600; margin: 0 0.5rem; }
         
@@ -131,7 +136,7 @@
         <!-- PRIMARY CTA: PRODUCT SALES -->
         <div class="pro-banner">
             <div class="pro-content">
-                <h2> Supercharge Your Suno Music</h2>
+                <h2>🚀 Supercharge Your Suno Music</h2>
                 <p>Get instant access to <strong>15,000+ Premium Prompts</strong> across 200+ genres. Stop guessing, start creating.</p>
             </div>
             <a href="https://sevensky.gumroad.com" class="pro-btn" target="_blank">Get Full Library →</a>
@@ -143,22 +148,22 @@
             <a href="https://sevensky.gumroad.com/coffee" target="_blank">Buy Me a Coffee to keep them running</a>
         </div>
 
-        <!-- EXACT KEYWORD TITLES GRID -->
+        <!-- CORE TOOLS GRID -->
         <div class="tools-grid">
             <div class="tool-card">
                 <h3>Suno Prompt Generator</h3>
                 <p>Create professional Suno AI music prompts with customizable genre, mood, and instruments.</p>
                 <a href="tools/suno-prompt-generator.html" class="btn">Use Tool</a>
             </div>
-<div class="tool-card">
-    <h3>Suno Lyrics Prompt Generator</h3>
-    <p>Create optimized prompts to generate custom song lyrics with AI writing assistants.</p>
-    <a href="tools/suno-lyrics-generator.html" class="btn">Use Tool</a>
-</div>
             <div class="tool-card">
-    <h3>Song Structure Generator</h3>
-    <p>Plan perfect song arrangements with AI-optimized structure templates (Verse, Chorus, Bridge).</p>
-    <a href="tools/suno-structure-generator.html" class="btn">Use Tool</a>
+                <h3>Suno Lyrics Prompt Generator</h3>
+                <p>Create optimized prompts to generate custom song lyrics with AI writing assistants.</p>
+                <a href="tools/suno-lyrics-generator.html" class="btn">Use Tool</a>
+            </div>
+            <div class="tool-card">
+                <h3>Song Structure Generator</h3>
+                <p>Plan perfect song arrangements with AI-optimized structure templates (Verse, Chorus, Bridge).</p>
+                <a href="tools/suno-structure-generator.html" class="btn">Use Tool</a>
             </div>
             <div class="tool-card">
                 <h3>Genre Generator</h3>
@@ -196,6 +201,25 @@
                 <span class="btn btn-disabled">Coming Soon</span>
             </div>
         </div>
+
+        <!-- GENRE-SPECIFIC PROGRAMMATIC SECTION -->
+        <section class="genre-section">
+            <h2>🎵 Genre-Specific Prompt Generators</h2>
+            <p>Optimized prompts tailored for specific music genres and subgenres. Rank higher with niche-specific keywords.</p>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3>Suno Pop Prompts</h3>
+                    <p>Optimized prompts for synthpop, indie pop, dance pop, and K-pop.</p>
+                    <a href="tools/suno-pop-prompts.html" class="btn">Use Tool</a>
+                </div>
+                <div class="tool-card">
+                    <h3>Suno Hip Hop Prompts</h3>
+                    <p>Tailored prompts for trap, boom bap, drill, and conscious rap.</p>
+                    <a href="tools/suno-hiphop-prompts.html" class="btn">Use Tool</a>
+                </div>
+            </div>
+        </section>
 
         <footer>
             <div class="footer-links">
