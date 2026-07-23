@@ -1,5 +1,5 @@
 /**
- * Suno AI Tools Engine - Auto-detects config & adjusts labels
+ * Suno AI Tools Engine - Auto-detects config based on URL
  */
 class SunoToolEngine {
     constructor(configPath) {
@@ -25,12 +25,11 @@ class SunoToolEngine {
         const container = document.getElementById('tool-container');
         if (!container || !this.config) return;
 
-        // AUTO-DETECT TOOL TYPE FOR DYNAMIC LABELS
+        // Dynamic labels based on tool type
         const path = window.location.pathname;
         const isLyrics = path.includes('lyrics') || this.config.toolId.includes('lyrics');
-        
-        const btnText = 'Generate Prompt';
-        const outputLabel = 'Your Generated Prompt:';
+        const btnText = isLyrics ? 'Generate Prompt' : 'Generate Prompt';
+        const outputLabel = isLyrics ? 'Your Generated Prompt:' : 'Your Generated Prompt:';
 
         let html = `<form id="prompt-form">`;
         
@@ -80,8 +79,7 @@ class SunoToolEngine {
         let output = this.config.template;
         this.config.fields.forEach(field => {
             const el = document.getElementById(field.id);
-            // FIX: Handle missing elements and empty values gracefully
-            const value = el ? (el.value || 'None') : '';
+            const value = el ? (el.value || '') : '';
             output = output.replace(new RegExp(`\\{${field.id}\\}`, 'g'), value);
         });
         
@@ -102,6 +100,10 @@ document.addEventListener('DOMContentLoaded', () => {
         configPath = '../config/suno-lyrics.json';
     } else if (path.includes('structure')) {
         configPath = '../config/suno-structure.json';
+    } else if (path.includes('pop')) {
+        configPath = '../config/suno-pop-prompts.json';
+    } else if (path.includes('hiphop')) {
+        configPath = '../config/suno-hiphop-prompts.json';
     }
     
     new SunoToolEngine(configPath);
