@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suno Prompt Generator</title>
+    <title>Suno Prompt Generator - Free AI Music Tool</title>
+    <meta name="description" content="Free Suno AI Prompt Generator. Create professional music prompts with customizable genre, mood, instruments, and structure.">
     <style>
         body { font-family: system-ui, sans-serif; margin: 0; padding: 2rem; background: #f8fafc; color: #1e293b; }
         .container { max-width: 700px; margin: 0 auto; }
-        h1 { color: #6366f1; margin-bottom: 1rem; }
-        .back { display: inline-block; color: #6366f1; text-decoration: none; margin-bottom: 1.5rem; }
-        #tool-container { margin-top: 2rem; }
+        h1 { color: #6366f1; margin-bottom: 0.5rem; font-size: 2rem; }
+        .subtitle { color: #64748b; margin-bottom: 2rem; font-size: 1.1rem; }
+        .back { display: inline-block; color: #6366f1; text-decoration: none; margin-bottom: 1.5rem; font-weight: 600; }
+        #tool-container { margin-top: 1rem; }
         .field-group { margin-bottom: 1.2rem; }
         label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
         select, textarea, input[type="range"] {
             width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 8px;
-            font-size: 1rem;
+            font-size: 1rem; background: white;
         }
         textarea { min-height: 100px; resize: vertical; }
         button {
@@ -25,23 +27,27 @@
         #output-area { margin-top: 2rem; padding: 1.5rem; background: #f1f5f9; border-radius: 8px; }
         #generated-prompt { width: 100%; min-height: 120px; padding: 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-family: monospace; margin-bottom: 1rem; }
         .btn-copy { background: #10b981; }
+        .support-box { margin-top: 2rem; padding: 1.5rem; background: #fffbeb; border-left: 4px solid #f59e0b; color: #92400e; }
+        .support-box a { color: #b45309; font-weight: 700; }
     </style>
 </head>
 <body>
     <div class="container">
         <a href="../index.html" class="back">← Back to Tools Hub</a>
+        
+        <!-- SINGLE CLEAN HEADER -->
         <h1>Suno Prompt Generator</h1>
-        <p>Generate professional AI music prompts instantly.</p>
+        <p class="subtitle">Generate professional AI music prompts instantly.</p>
 
+        <!-- ENGINE INJECTS FORM HERE (NO DUPLICATE TITLE) -->
         <div id="tool-container">
-            <!-- Engine will inject form here -->
-            <p>Loading...</p>
+            <p>Loading generator...</p>
         </div>
 
-        <!-- Support CTA inside tool -->
-        <div style="margin-top: 2rem; padding: 1.5rem; background: #fffbeb; border-left: 4px solid #f59e0b; color: #92400e;">
+        <!-- SUPPORT CTA -->
+        <div class="support-box">
             ❤️ Love this free tool?  
-            <a href="https://sevensky.gumroad.com/coffee" target="_blank" style="color:#b45309; font-weight:700;">Buy Me a Coffee</a> to keep it running.
+            <a href="https://sevensky.gumroad.com/coffee" target="_blank">Buy Me a Coffee</a> to keep it running.
         </div>
     </div>
 
