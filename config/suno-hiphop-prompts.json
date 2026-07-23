@@ -1,0 +1,40 @@
+{
+  "toolId": "suno-hiphop-prompts",
+  "title": "Free Hip Hop Prompt Generator for Suno",
+  "description": "Generate hip hop and rap prompts optimized for Suno AI. Includes flow styles, beat types, and lyrical themes.",
+  "fields": [
+    {
+      "id": "subgenre",
+      "label": "Hip Hop Subgenre",
+      "type": "select",
+      "options": ["Trap", "Boom Bap", "Drill", "Lo-Fi Hip Hop", "Conscious Rap", "Cloud Rap", "Phonk"],
+      "required": true
+    },
+    {
+      "id": "flow",
+      "label": "Rap Flow Style",
+      "type": "select",
+      "options": ["Fast Triplets", "Laid Back", "Aggressive", "Melodic Sing-Rap", "Storytelling"],
+      "required": false
+    },
+    {
+      "id": "beat_type",
+      "label": "Beat Type",
+      "type": "select",
+      "options": ["Heavy 808s", "Jazz Sample", "Dark Piano", "Synth Melody", "Guitar Loop"],
+      "required": true
+    },
+    {
+      "id": "theme",
+      "label": "Lyrical Theme",
+      "type": "textarea",
+      "placeholder": "e.g., street life, success, heartbreak, social commentary, flexing"
+    }
+  ],
+  "template": "{subgenre} hip hop track, {beat_type} beat. Flow: {flow}. Theme: {theme}. Heavy bass, crisp hi-hats, authentic rap delivery, modern trap production.",
+  "monetization": {
+    "donationLink": "https://sevensky.gumroad.com/coffee",
+    "productLink": "https://sevensky.gumroad.com",
+    "productText": "Get 15,000+ Suno AI Prompts Library (200+ Genres)"
+  }
+}
